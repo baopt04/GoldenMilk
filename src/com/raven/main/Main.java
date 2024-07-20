@@ -6,11 +6,13 @@
 package com.raven.main;
 
 import com.raven.event.EventMenuSelected;
-import com.raven.form.Form_1;
+import com.raven.form.BanHangView;
+import com.raven.form.SanPhamView;
 import com.raven.form.Form_2;
 import com.raven.form.Form_3;
 import com.raven.form.Form_4;
 import com.raven.form.Form_Home;
+import com.raven.form.fomrt1;
 import java.awt.Color;
 import javax.swing.JComponent;
 
@@ -24,18 +26,20 @@ public class Main extends javax.swing.JFrame {
      * Creates new form Main
      */
     private Form_Home home;
-    private Form_1 form1;
+    private SanPhamView form1;
     private Form_2 form2;
     private Form_3 form3;
     private Form_4 form4;
+    private BanHangView form5;
     public Main() {
         initComponents();
         setBackground(new Color(0, 0, 0, 0));
         home = new Form_Home();
-        form1 = new Form_1();
+        form1 = new SanPhamView();
         form2 = new Form_2();
         form3 = new Form_3();
         form4 = new Form_4();
+        form5 = new BanHangView();
         menu.initMoving(Main.this);
         menu.addEventMenuSelected(new EventMenuSelected() {
             @Override
@@ -47,7 +51,7 @@ public class Main extends javax.swing.JFrame {
                 } else if (index == 2) {
                     setForm(form2);
                 } else if (index == 3) {
-                    setForm(form3);
+                    setForm(form5);
                 }else if (index == 4){
                     setForm(form4);
                 }
