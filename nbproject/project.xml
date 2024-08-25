@@ -3,7 +3,12 @@
     <type>org.netbeans.modules.java.j2seproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
+<<<<<<< HEAD
             <name>QuanLyBanSuaFix2</name>
+=======
+            <name>GoldenMilk</name>
+            <explicit-platform explicit-source-supported="true"/>
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>

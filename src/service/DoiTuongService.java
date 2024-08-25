@@ -9,7 +9,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import model.DoiTuong;
+<<<<<<< HEAD
 //import service.DBconnect;
+=======
+import service.DBconnect;
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
 
 /**
  *
@@ -21,6 +25,7 @@ public class DoiTuongService implements DoiTuongInterFace {
     PreparedStatement ps = null;
     ResultSet rs = null;
     String sql = "";
+<<<<<<< HEAD
     
   public boolean isTenSanPhamExists(String tenSanPham) {
         tenSanPham = tenSanPham.trim().toLowerCase();
@@ -38,11 +43,18 @@ public class DoiTuongService implements DoiTuongInterFace {
     return false;
 }
   
+=======
+
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
     public List<DoiTuong> getList() {
         List<DoiTuong> list = new ArrayList<>();
         String sql = "select madoituongsudung , tenDoiTuongSD from DoiTuongSuDung";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -60,7 +72,11 @@ public class DoiTuongService implements DoiTuongInterFace {
     public int addDoiTuong(DoiTuong doiTuong) {
         sql = "Insert into DoiTuongSuDung (maDoiTuongSuDung , tenDoiTuongSD) values(? , ?)";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, doiTuong.getMaDoiTuong());
             ps.setObject(2, doiTuong.getTenDoiTuongSD());
@@ -75,7 +91,11 @@ public class DoiTuongService implements DoiTuongInterFace {
     public int update(DoiTuong doiTuong, String id) {
         sql = "	Update DoiTuongSuDung set tenDoiTuongSD = ? ,maDoiTuongSuDung = ?  where maDoiTuongSuDung =?";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, doiTuong.getTenDoiTuongSD());
              ps.setObject(2, doiTuong.getMaDoiTuong());
@@ -91,7 +111,11 @@ public class DoiTuongService implements DoiTuongInterFace {
     public int delete(String id) {
         sql = "delete DoiTuongSuDung where maDoiTuongSuDung  = ?  ";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, id);
             return ps.executeUpdate();
@@ -106,7 +130,11 @@ public class DoiTuongService implements DoiTuongInterFace {
      sql = "SELECT maDoiTuongSuDung, tenDoiTuongSD FROM DoiTuongSuDung WHERE maDoiTuongSuDung LIKE ? OR tenDoiTuongSD LIKE ?";
     List<DoiTuong> list = new ArrayList<>();
     try {
+<<<<<<< HEAD
         con = DBConnect.getConnection();
+=======
+        con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
         ps = con.prepareStatement(sql);
         ps.setString(1, ma);
         ps.setString(2, ma);
@@ -122,6 +150,7 @@ public class DoiTuongService implements DoiTuongInterFace {
         return null;
     }
 }
+<<<<<<< HEAD
 public boolean checkMaDT(String maDoiTuong) {
      sql = "SELECT COUNT(*) FROM doituongsudung WHERE maDoiTuongSuDung = ?";
     try {
@@ -139,6 +168,8 @@ public boolean checkMaDT(String maDoiTuong) {
     }
     return false; // Trả về false nếu có lỗi xảy ra
 }
+=======
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
 
 
 }

@@ -17,6 +17,7 @@ public class TheTichSerivce implements TheTichInter{
     PreparedStatement ps = null;
     ResultSet rs = null;
     String sql = "";
+<<<<<<< HEAD
     
       public boolean isTenSanPhamExists(String tenSanPham) {
         tenSanPham = tenSanPham.trim().toLowerCase();
@@ -33,11 +34,17 @@ public class TheTichSerivce implements TheTichInter{
     }
     return false;
 }
+=======
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
     public List<TheTich> getList(){
         List<TheTich> list = new ArrayList<>();
         String sql = "select mathetich , tenthetich from TheTich";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {                
@@ -55,7 +62,11 @@ public class TheTichSerivce implements TheTichInter{
     public int add(TheTich theTich) {
      sql = "Insert into TheTich (mathetich , tenthetich) values(? , ?)";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, theTich.getMaTheTich());
             ps.setObject(2, theTich.getTenTheTich());
@@ -70,7 +81,11 @@ public class TheTichSerivce implements TheTichInter{
     public int delete(String id) {
              sql = "delete TheTich where mathetich  = ?  ";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, id);
             return ps.executeUpdate();
@@ -84,7 +99,11 @@ public class TheTichSerivce implements TheTichInter{
     public int update(TheTich theTich, String id) {
            sql = "Update TheTich set tenthetich = ? ,mathetich = ?  where mathetich =?";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, theTich.getTenTheTich());
              ps.setObject(2, theTich.getMaTheTich());
@@ -95,6 +114,7 @@ public class TheTichSerivce implements TheTichInter{
             return 0;
         }
     }
+<<<<<<< HEAD
        public boolean checkHv(String tt) {
      sql = "SELECT COUNT(*) FROM TheTich WHERE mathetich = ?";
     try {
@@ -112,5 +132,8 @@ public class TheTichSerivce implements TheTichInter{
     }
     return false; 
 }
+=======
+   
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
     
 }

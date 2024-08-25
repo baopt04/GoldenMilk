@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package service;
+<<<<<<< HEAD
 
 import java.awt.Image;
 import java.io.File;
@@ -18,16 +19,26 @@ import javax.swing.JFileChooser;
 import model.SanPham;
 import model.SanPhamChiTiet;
 
+=======
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import model.SanPham;
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
 /**
  *
  * @author Computer Bao
  */
 public class SanPhamService {
+<<<<<<< HEAD
 
+=======
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
     Connection con = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
     String sql = null;
+<<<<<<< HEAD
 
     public List<SanPham> getList() {
         sql = "SELECT \n"
@@ -93,6 +104,33 @@ public class SanPhamService {
                     rs.getString(5),
                     rs.getString(7),
                     rs.getString(6));
+=======
+public List<SanPham> getList() {
+    String sql = "SELECT \n" +
+"    s.maSanPham,\n" +
+"    s.tenSanPham,\n" +
+"    l.tenLoaiSanPham,\n" +
+"    h.tenHangSanPham,\n" +
+"    s.trangThai,\n" +
+"    s.mota\n" +            
+"FROM \n" +
+"    SanPham s\n" +
+"    JOIN LoaiSanPham l ON s.id_loaiSanPham = l.id_loaiSanPham\n" +
+"    JOIN HangSanPham h ON s.id_hangSanPham = h.id_hangSanPham";
+    System.out.println(sql);
+    List<SanPham> list = new ArrayList<>();
+    try {
+        Connection con = DBconnect.getConnection();
+        ps = con.prepareStatement(sql);
+        rs = ps.executeQuery();
+        while (rs.next()) {
+            SanPham sanPham = new SanPham(rs.getString(1),
+                   rs.getString(2),
+                   rs.getString(3), 
+                   rs.getString(4), 
+                   rs.getString(6),
+            rs.getString(5));
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             list.add(sanPham);
         }
         return list;
@@ -100,6 +138,7 @@ public class SanPhamService {
         e.printStackTrace();
         return null;
     }
+<<<<<<< HEAD
 }
 
   public boolean isMaSanPhamExists(String maSanPham) {
@@ -227,6 +266,34 @@ public String generateNewSanPhamChiTietCode() {
         sql = "delete SanPham where maSanPham  = ?  ";
         try {
             con = DBConnect.getConnection();
+=======
+    
+}
+
+    public int add(SanPham sanPham) {
+ sql = "INSERT INTO SanPham (ID_loaiSanPham, ID_hangSanPham, maSanPham, tenSanPham, moTa, trangthai) values (? , ? , ? , ? , ? ,?)";
+        try {
+            int id_loai = getLoaiByIdName(sanPham.getId_loaiSanPham());
+            int id_hang = getHangByIDName(sanPham.getId_hangSanPham());
+            con = DBconnect.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setObject(1, id_loai);
+            ps.setObject(2, id_hang);
+            ps.setObject(3, sanPham.getMaSanPham());
+            ps.setObject(4, sanPham.getTenSanPham());
+            ps.setObject(5, sanPham.getTrangThai());
+            ps.setObject(6, sanPham.getGhiChu());
+            return ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+        public int delete(String id) {
+        sql = "delete SanPham where maSanPham  = ?  ";
+        try {
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, id);
             return ps.executeUpdate();
@@ -235,6 +302,7 @@ public String generateNewSanPhamChiTietCode() {
             return 0;
         }
     }
+<<<<<<< HEAD
 
 public int update(SanPham sanPham, String id) {
     sql = "UPDATE SanPham SET "
@@ -303,6 +371,23 @@ public int update(SanPham sanPham, String id) {
             ps.setObject(8 ,spct.getDonGia());
             ps.setObject(9, id);
             ps.executeUpdate();
+=======
+        
+            public int update(SanPham sanPham, String id) {
+          sql = "update SanPham set ID_hangSanPham = ? , ID_loaiSanPham = ? , tenSanPham = ? , moTa =? , trangthai = ? , maSanPham = ? where maSanPham = ?";    
+        try {
+         int id_loai = getLoaiByIdName(sanPham.getId_loaiSanPham());
+            int id_hang = getHangByIDName(sanPham.getId_hangSanPham());
+            con = DBconnect.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id_loai);
+            ps.setInt(2, id_hang);
+            ps.setObject(3, sanPham.getTenSanPham());
+            ps.setObject(4, sanPham.getTrangThai());
+            ps.setObject(5, sanPham.getGhiChu());
+            ps.setObject(6, sanPham.getMaSanPham());
+            ps.setObject(7, id);
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             return ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -310,6 +395,7 @@ public int update(SanPham sanPham, String id) {
         }
     }
 
+<<<<<<< HEAD
     public List<SanPham> timKiemSP(String ma) {
       sql = "SELECT \n"
            + "    sp.maSanPham,\n"
@@ -359,6 +445,11 @@ public int update(SanPham sanPham, String id) {
     private int getHangByIDName(String tenHang) {
         String sql = "SELECT ID_hangSanPham FROM HangSanPham WHERE tenHangSanPham = ?";
         try (Connection con = DBConnect.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+=======
+    private int getHangByIDName(String tenHang) {
+        String sql = "SELECT ID_hangSanPham FROM HangSanPham WHERE tenHangSanPham = ?";
+        try (Connection con = DBconnect.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps.setString(1, tenHang);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
@@ -370,10 +461,16 @@ public int update(SanPham sanPham, String id) {
         }
         return -1;
     }
+<<<<<<< HEAD
 
     private int getLoaiByIdName(String tenLoai) {
         String sql = "SELECT ID_loaiSanPham FROM LoaiSanPham WHERE tenLoaiSanPham = ?";
         try (Connection con = DBConnect.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+=======
+      private int getLoaiByIdName(String tenLoai) {
+        String sql = "SELECT ID_loaiSanPham FROM LoaiSanPham WHERE tenLoaiSanPham = ?";
+        try (Connection con = DBconnect.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps.setString(1, tenLoai);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
@@ -385,6 +482,7 @@ public int update(SanPham sanPham, String id) {
         }
         return -1;
     }
+<<<<<<< HEAD
 
     private int getLoSXByIdName(String tenLoai) {
         String sql = "SELECT ID_loSanXuat FROM LoSanXuat WHERE tenLoSanXuat = ?";
@@ -475,4 +573,6 @@ public int update(SanPham sanPham, String id) {
         }
         return -1;
     }
+=======
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
 }

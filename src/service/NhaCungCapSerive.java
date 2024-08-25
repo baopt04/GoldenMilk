@@ -20,6 +20,7 @@ public class NhaCungCapSerive implements NhaCungCapInter {
     PreparedStatement ps = null;
     ResultSet rs = null;
     String sql = "";
+<<<<<<< HEAD
   public boolean isTenSanPhamExists(String tenSanPham) {
         tenSanPham = tenSanPham.trim().toLowerCase();
     sql = "SELECT COUNT(*) FROM NhaCungCap WHERE LOWER(tenNhaCungCap) = ?";
@@ -35,11 +36,18 @@ public class NhaCungCapSerive implements NhaCungCapInter {
     }
     return false;
 }
+=======
+
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
     public List<NhaCungCap> getList() {
         List<NhaCungCap> list = new ArrayList<>();
         String sql = "select maNhaCungCap , tenNhaCungCap , soDT , email  , diaChi from NhaCungCap";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -61,7 +69,11 @@ public class NhaCungCapSerive implements NhaCungCapInter {
     public int add(NhaCungCap nhaCungCap) {
         sql = "Insert into NhaCungCap (maNhaCungCap , tenNhaCungCap , soDT ,email, diaChi ) values(? , ? , ? , ? , ?)";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, nhaCungCap.getMaNhaCungCap());
             ps.setObject(2, nhaCungCap.getTenNhaCungCap());
@@ -79,7 +91,11 @@ public class NhaCungCapSerive implements NhaCungCapInter {
     public int delete(String id) {
         sql = "delete NhaCungCap where maNhaCungCap  = ?  ";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, id);
             return ps.executeUpdate();
@@ -93,7 +109,11 @@ public class NhaCungCapSerive implements NhaCungCapInter {
     public int update(NhaCungCap nhaCungCap, String id) {
         sql = "Update NhaCungCap set tenNhaCungCap = ? ,soDT = ? ,email = ? , diaChi = ? , maNhaCungCap = ?   where maNhaCungCap =?";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, nhaCungCap.getTenNhaCungCap());
             ps.setObject(2, nhaCungCap.getSoDT());
@@ -107,6 +127,7 @@ public class NhaCungCapSerive implements NhaCungCapInter {
             return 0;
         }
     }
+<<<<<<< HEAD
     public boolean checkNcc(String ncc) {
      sql = "SELECT COUNT(*) FROM NhaCungCap WHERE maNhaCungCap = ?";
     try {
@@ -124,4 +145,7 @@ public class NhaCungCapSerive implements NhaCungCapInter {
     }
     return false; 
 }
+=======
+
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
 }

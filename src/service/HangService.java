@@ -17,6 +17,7 @@ public class HangService implements HangInter{
     PreparedStatement ps = null;
     ResultSet rs = null;
     String sql = "";
+<<<<<<< HEAD
     
       public boolean isTenSanPhamExists(String tenSanPham) {
         tenSanPham = tenSanPham.trim().toLowerCase();
@@ -33,11 +34,17 @@ public class HangService implements HangInter{
     }
     return false;
 }
+=======
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
     public List<HangSanPham> getList(){
         List<HangSanPham> list = new ArrayList<>();
         String sql = "select maHangSanPham , tenHangSanPham from HangSanPham";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {                
@@ -55,7 +62,11 @@ public class HangService implements HangInter{
     public int add(HangSanPham hangSanPham) {
         sql = "Insert into HangSanPham (maHangSanPham , tenHangSanPham) values(? , ?)";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, hangSanPham.getMaHangSanPham());
             ps.setObject(2, hangSanPham.getTenHangSanPham());
@@ -70,7 +81,11 @@ public class HangService implements HangInter{
     public int delete(String id) {
    sql = "delete HangSanPham where maHangSanPham  = ?  ";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, id);
             return ps.executeUpdate();
@@ -84,7 +99,11 @@ public class HangService implements HangInter{
     public int update(HangSanPham hangSanPham, String id) {
 sql = "Update HangSanPham set tenHangSanPham = ? ,maHangSanPham = ?  where maHangSanPham =?";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, hangSanPham.getTenHangSanPham());
             ps.setObject(2, hangSanPham.getMaHangSanPham());
@@ -95,6 +114,7 @@ sql = "Update HangSanPham set tenHangSanPham = ? ,maHangSanPham = ?  where maHan
             return 0;
         }
     }
+<<<<<<< HEAD
     public boolean checkhang(String mahang) {
      sql = "SELECT COUNT(*) FROM HangSanPham WHERE maHangSanPham = ?";
     try {
@@ -112,4 +132,6 @@ sql = "Update HangSanPham set tenHangSanPham = ? ,maHangSanPham = ?  where maHan
     }
     return false; // Trả về false nếu có lỗi xảy ra
 }
+=======
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
 } 

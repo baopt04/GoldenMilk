@@ -4,13 +4,17 @@
  */
 package model;
 
+<<<<<<< HEAD
 import java.util.List;
 
+=======
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
 /**
  *
  * @author Computer Bao
  */
 public class SanPham {
+<<<<<<< HEAD
 
     int id;
     String maSanPham;
@@ -70,6 +74,26 @@ public class SanPham {
     }
     
     
+=======
+    String maSanPham;
+      String tenSanPham;
+    String id_hangSanPham;
+    String id_loaiSanPham;
+    String ghiChu;
+    String trangThai;
+
+    public SanPham() {
+    }
+
+    public SanPham(String maSanPham, String tenSanPham, String id_hangSanPham, String id_loaiSanPham, String ghiChu, String trangThai) {
+        this.maSanPham = maSanPham;
+        this.tenSanPham = tenSanPham;
+        this.id_hangSanPham = id_hangSanPham;
+        this.id_loaiSanPham = id_loaiSanPham;
+        this.ghiChu = ghiChu;
+        this.trangThai = trangThai;
+    }
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
 
     public String getGhiChu() {
         return ghiChu;
@@ -79,6 +103,25 @@ public class SanPham {
         this.ghiChu = ghiChu;
     }
 
+<<<<<<< HEAD
+=======
+    public String getId_hangSanPham() {
+        return id_hangSanPham;
+    }
+
+    public void setId_hangSanPham(String id_hangSanPham) {
+        this.id_hangSanPham = id_hangSanPham;
+    }
+
+    public String getId_loaiSanPham() {
+        return id_loaiSanPham;
+    }
+
+    public void setId_loaiSanPham(String id_loaiSanPham) {
+        this.id_loaiSanPham = id_loaiSanPham;
+    }
+
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
     public String getMaSanPham() {
         return maSanPham;
     }
@@ -103,7 +146,11 @@ public class SanPham {
         this.trangThai = trangThai;
     }
 
+<<<<<<< HEAD
     Integer stt = 1;
+=======
+Integer stt = 1;
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
 
     public Integer getStt() {
         return stt;
@@ -113,6 +160,7 @@ public class SanPham {
         this.stt = stt;
     }
 
+<<<<<<< HEAD
     public Object[] toData() {
         return new Object[]{
             this.maSanPham,
@@ -123,4 +171,16 @@ public class SanPham {
             this.ghiChu
         };
     }
+=======
+   public Object[] toData() {
+    return new Object[]{
+        this.maSanPham,
+        this.tenSanPham,
+        this.id_loaiSanPham,
+        this.id_hangSanPham,
+        this.trangThai,
+        this.ghiChu
+    };
+   }
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
 }

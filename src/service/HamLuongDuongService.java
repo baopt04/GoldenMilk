@@ -21,6 +21,7 @@ public class HamLuongDuongService implements HamLuongDuongInter {
     ResultSet rs = null;
     String sql = "";
 
+<<<<<<< HEAD
     public boolean isTenSanPhamExists(String tenSanPham) {
         tenSanPham = tenSanPham.trim().toLowerCase();
         sql = "SELECT COUNT(*) FROM HamLuongDuong WHERE LOWER(tenHamLuongDuong) = ?";
@@ -36,11 +37,17 @@ public class HamLuongDuongService implements HamLuongDuongInter {
         return false;
     }
 
+=======
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
     public List<HamLuongDuong> getList() {
         List<HamLuongDuong> list = new ArrayList<>();
         String sql = "select maHamLuongDuong , tenHamLuongDuong from HamLuongDuong";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -58,7 +65,11 @@ public class HamLuongDuongService implements HamLuongDuongInter {
     public int addDoiTuong(HamLuongDuong hamLuongDuong) {
         sql = "Insert into HamLuongDuong (maHamLuongDuong , tenHamLuongDuong) values(? , ?)";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, hamLuongDuong.getMaHamLuongDuong());
             ps.setObject(2, hamLuongDuong.getTenHamLuong());
@@ -73,7 +84,11 @@ public class HamLuongDuongService implements HamLuongDuongInter {
     public int delete(String id) {
         sql = "delete HamLuongDuong where maHamLuongDuong  = ?  ";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, id);
             return ps.executeUpdate();
@@ -85,12 +100,21 @@ public class HamLuongDuongService implements HamLuongDuongInter {
 
     @Override
     public int update(HamLuongDuong hamLuongDuong, String id) {
+<<<<<<< HEAD
         sql = "Update HamLuongDuong set tenHamLuongDuong = ? ,maHamLuongDuong = ?  where maHamLuongDuong =?";
         try {
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
             ps.setObject(1, hamLuongDuong.getTenHamLuong());
             ps.setObject(2, hamLuongDuong.getMaHamLuongDuong());
+=======
+    sql = "Update HamLuongDuong set tenHamLuongDuong = ? ,maHamLuongDuong = ?  where maHamLuongDuong =?";
+        try {
+            con = DBconnect.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setObject(1, hamLuongDuong.getTenHamLuong());
+             ps.setObject(2, hamLuongDuong.getMaHamLuongDuong());
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps.setObject(3, id);
             return ps.executeUpdate();
         } catch (Exception e) {
@@ -98,6 +122,7 @@ public class HamLuongDuongService implements HamLuongDuongInter {
             return 0;
         }
     }
+<<<<<<< HEAD
 
     public boolean checkMaHLD(String hld) {
         sql = "SELECT COUNT(*) FROM HamLuongDuong WHERE maHamLuongDuong = ?";
@@ -116,4 +141,6 @@ public class HamLuongDuongService implements HamLuongDuongInter {
         }
         return false; // Trả về false nếu có lỗi xảy ra
     }
+=======
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
 }

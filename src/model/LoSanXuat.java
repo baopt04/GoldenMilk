@@ -13,17 +13,29 @@ import java.util.Date;
 public class LoSanXuat {
     String maLoSanXuat;
     String tenLoSanXuat;
+<<<<<<< HEAD
     Date ngayNhap;
     String soLuongNhap;
     String giaNhap;
     Date NSX;
     Date HSD;
+=======
+    String ngayNhap;
+    String soLuongNhap;
+    String giaNhap;
+    String NSX;
+    String HSD;
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
     String tenNhaCungCap;
 
     public LoSanXuat() {
     }
 
+<<<<<<< HEAD
     public LoSanXuat(String maLoSanXuat, String tenLoSanXuat, Date ngayNhap, String soLuongNhap, String giaNhap, Date NSX, Date HSD, String tenNhaCungCap) {
+=======
+    public LoSanXuat(String maLoSanXuat, String tenLoSanXuat, String ngayNhap, String soLuongNhap, String giaNhap, String NSX, String HSD, String tenNhaCungCap) {
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
         this.maLoSanXuat = maLoSanXuat;
         this.tenLoSanXuat = tenLoSanXuat;
         this.ngayNhap = ngayNhap;
@@ -36,8 +48,11 @@ public class LoSanXuat {
 
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
     public String getMaLoSanXuat() {
         return maLoSanXuat;
     }
@@ -64,6 +79,16 @@ public class LoSanXuat {
 
  
 
+<<<<<<< HEAD
+=======
+    public String getNgayNhap() {
+        return ngayNhap;
+    }
+
+    public void setNgayNhap(String ngayNhap) {
+        this.ngayNhap = ngayNhap;
+    }
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
 
     public String getSoLuongNhap() {
         return soLuongNhap;
@@ -81,6 +106,7 @@ public class LoSanXuat {
         this.giaNhap = giaNhap;
     }
 
+<<<<<<< HEAD
     public Date getNgayNhap() {
         return ngayNhap;
     }
@@ -106,6 +132,24 @@ public class LoSanXuat {
     }
 
 
+=======
+    public String getNSX() {
+        return NSX;
+    }
+
+    public void setNSX(String NSX) {
+        this.NSX = NSX;
+    }
+
+    public String getHSD() {
+        return HSD;
+    }
+
+    public void setHSD(String HSD) {
+        this.HSD = HSD;
+    }
+
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
     public Object[] toDataRowLSX() {
         return new Object[]{
             this.maLoSanXuat,this.tenLoSanXuat , 

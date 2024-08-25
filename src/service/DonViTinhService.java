@@ -14,13 +14,18 @@ import model.DonViTinh;
  *
  * @author Computer Bao
  */
+<<<<<<< HEAD
 public class DonViTinhService implements DonViTinhInter {
+=======
+public class DonViTinhService implements DonViTinhInter{
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
 
     Connection con = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
     String sql = "";
 
+<<<<<<< HEAD
     public boolean isTenSanPhamExists(String tenSanPham) {
         tenSanPham = tenSanPham.trim().toLowerCase();
         sql = "SELECT COUNT(*) FROM DonViTinh WHERE LOWER(tenDonViTinh) = ?";
@@ -36,11 +41,17 @@ public class DonViTinhService implements DonViTinhInter {
         return false;
     }
 
+=======
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
     public List<DonViTinh> getList() {
         List<DonViTinh> list = new ArrayList<>();
         String sql = "select maDonViTinh , tenDonViTinh from DonViTinh";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -58,7 +69,11 @@ public class DonViTinhService implements DonViTinhInter {
     public int addDoiTuong(DonViTinh donViTinh) {
         sql = "Insert into DonViTinh (maDonViTinh , tenDonViTinh) values(? , ?)";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, donViTinh.getMaDonViTinh());
             ps.setObject(2, donViTinh.getTenDonVi());
@@ -71,9 +86,15 @@ public class DonViTinhService implements DonViTinhInter {
 
     @Override
     public int delete(String id) {
+<<<<<<< HEAD
         sql = "delete DonViTinh where maDonViTinh  = ?  ";
         try {
             con = DBConnect.getConnection();
+=======
+ sql = "delete DonViTinh where maDonViTinh  = ?  ";
+        try {
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, id);
             return ps.executeUpdate();
@@ -87,10 +108,17 @@ public class DonViTinhService implements DonViTinhInter {
     public int update(DonViTinh donViTinh, String id) {
         sql = "	Update DonViTinh set tenDonViTinh = ? ,maDonViTinh = ?  where maDonViTinh =?";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
             ps.setObject(1, donViTinh.getTenDonVi());
             ps.setObject(2, donViTinh.getMaDonViTinh());
+=======
+            con = DBconnect.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setObject(1, donViTinh.getTenDonVi());
+             ps.setObject(2, donViTinh.getMaDonViTinh());
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps.setObject(3, id);
             return ps.executeUpdate();
         } catch (Exception e) {
@@ -101,6 +129,7 @@ public class DonViTinhService implements DonViTinhInter {
 
     @Override
     public List<DonViTinh> timKiem(String ma) {
+<<<<<<< HEAD
         sql = "SELECT maDonViTinh, tenDonViTinh FROM DonViTinh WHERE maDonViTinh LIKE ? OR tenDonViTinh LIKE ?";
         List<DonViTinh> list = new ArrayList<>();
         try {
@@ -139,4 +168,26 @@ public class DonViTinhService implements DonViTinhInter {
         return false; // Trả về false nếu có lỗi xảy ra
     }
 
+=======
+ sql = "SELECT maDonViTinh, tenDonViTinh FROM DonViTinh WHERE maDonViTinh LIKE ? OR tenDonViTinh LIKE ?";
+    List<DonViTinh> list = new ArrayList<>();
+    try {
+        con = DBconnect.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setString(1, ma);
+        ps.setString(2, ma);
+        rs = ps.executeQuery();
+        while (rs.next()) {
+            DonViTinh donViTinh = new DonViTinh(rs.getString(1), 
+                    rs.getString(2));
+            list.add(donViTinh);
+        }
+        return list;
+    } catch (Exception e) {
+        e.printStackTrace();
+        return null;
+    }
+    }
+    
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
 }

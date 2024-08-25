@@ -17,6 +17,7 @@ public class LoaiSerive  implements LoaiInter{
     PreparedStatement ps = null;
     ResultSet rs = null;
     String sql = "";
+<<<<<<< HEAD
     
       public boolean isTenSanPhamExists(String tenSanPham) {
         tenSanPham = tenSanPham.trim().toLowerCase();
@@ -33,11 +34,17 @@ public class LoaiSerive  implements LoaiInter{
     }
     return false;
 }
+=======
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
     public List<LoaiSanPham> getList(){
         List<LoaiSanPham> list = new ArrayList<>();
         String sql = "select maLoaiSanPham , tenLoaiSanPham from LoaiSanPham";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {                
@@ -55,7 +62,11 @@ public class LoaiSerive  implements LoaiInter{
     public int add(LoaiSanPham loaiSanPham) {
            sql = "Insert into LoaiSanPham (maLoaiSanPham , tenLoaiSanPham) values(? , ?)";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, loaiSanPham.getMaLoaiSanPham());
             ps.setObject(2, loaiSanPham.getTenLoaiSanPham());
@@ -70,7 +81,11 @@ public class LoaiSerive  implements LoaiInter{
     public int delete(String id) {
  sql = "delete LoaiSanPham where maLoaiSanPham  = ?  ";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, id);
             return ps.executeUpdate();
@@ -84,7 +99,11 @@ public class LoaiSerive  implements LoaiInter{
     public int update(LoaiSanPham loaiSanPham, String id) {
        sql = "Update LoaiSanPham set tenLoaiSanPham = ? ,maLoaiSanPham = ?  where maLoaiSanPham =?";
         try {
+<<<<<<< HEAD
             con = DBConnect.getConnection();
+=======
+            con = DBconnect.getConnection();
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
             ps = con.prepareStatement(sql);
             ps.setObject(1, loaiSanPham.getTenLoaiSanPham());
              ps.setObject(2, loaiSanPham.getMaLoaiSanPham());
@@ -95,6 +114,7 @@ public class LoaiSerive  implements LoaiInter{
             return 0;
         }
     }
+<<<<<<< HEAD
         public boolean checkHv(String loai) {
      sql = "SELECT COUNT(*) FROM LoaiSanPham WHERE maLoaiSanPham = ?";
     try {
@@ -112,4 +132,7 @@ public class LoaiSerive  implements LoaiInter{
     }
     return false; 
 }
+=======
+    
+>>>>>>> b63760df799d11f838fc10d576440d2801f77e3b
 }
